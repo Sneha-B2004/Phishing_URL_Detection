@@ -1,7 +1,7 @@
 # PHISHING URL DETECTION – MACHINE LEARNING PROJECT
 
 # LIVE DEMO
-https://internship-b4ah5akgwqzbnpu2ja4qgh.streamlit.app/
+https://phishingurldetection-hbc6r5vj4onxwvojj7smpd.streamlit.app/
 
 # PROJECT OVERVIEW
 
