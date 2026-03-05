@@ -1,12 +1,11 @@
-import pickle
+import joblib
 from pathlib import Path
 
-MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "phishing_model.pkl"
+MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "phishing_model.joblib"
 _model = None
 
 def get_model():
     global _model
     if _model is None:
-        with open(MODEL_PATH, "rb") as f:
-            _model = pickle.load(f)
+        _model = joblib.load(MODEL_PATH)
     return _model
