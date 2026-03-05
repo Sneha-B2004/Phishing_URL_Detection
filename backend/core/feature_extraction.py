@@ -1,28 +1,37 @@
 import re
-import requests
 import socket
 import ssl
-import whois
-from urllib.parse import urlparse
-from bs4 import BeautifulSoup
 from datetime import datetime
+from urllib.parse import urlparse
+
+import numpy as np
+import requests
+import whois
+from bs4 import BeautifulSoup
 
 
-def extract_features(url):
-
+def extract_features(url: str):
+    """
+    Returns a 2D numpy array shaped (1, 30) for sklearn models.
+    """
     features = []
 
-    parsed = urlparse(url)
-    domain = parsed.netloc
+    # Normalize URL: urlparse needs scheme to properly detect hostname
+    if not url.startswith(("http://", "https://")):
+        url = "http://" + url
 
-    # 1️⃣ Having IP Address
+    parsed = urlparse(url)
+    host = parsed.hostname or ""  # safer than netloc (removes port)
+    domain = host
+
+    # 1) Having IP Address
     try:
         socket.inet_aton(domain)
         features.append(-1)
     except:
         features.append(1)
 
-    # 2️⃣ URL Length
+    # 2) URL Length
     if len(url) < 54:
         features.append(1)
     elif 54 <= len(url) <= 75:
@@ -30,77 +39,73 @@ def extract_features(url):
     else:
         features.append(-1)
 
-    # 3️⃣ Shortening Service
+    # 3) Shortening Service
     shortening = r"bit\.ly|goo\.gl|tinyurl|ow\.ly|t\.co"
     features.append(-1 if re.search(shortening, url) else 1)
 
-    # 4️⃣ @ symbol
+    # 4) @ symbol
     features.append(-1 if "@" in url else 1)
 
-    # 5️⃣ Double slash redirect
+    # 5) Double slash redirect
     features.append(-1 if url.rfind("//") > 6 else 1)
 
-    # 6️⃣ Prefix-Suffix (hyphen in domain)
+    # 6) Prefix-Suffix (hyphen in domain)
     features.append(-1 if "-" in domain else 1)
 
-    # 7️⃣ Subdomain count
-    if domain.count('.') > 2:
-        features.append(-1)
-    else:
-        features.append(1)
+    # 7) Subdomain count
+    features.append(-1 if domain.count(".") > 2 else 1)
 
-    # 8️⃣ HTTPS check
+    # 8) HTTPS check
     features.append(1 if parsed.scheme == "https" else -1)
 
-    # 9️⃣ SSL Certificate Validity
+    # 9) SSL Certificate Validity (only meaningful if https and host exists)
     try:
-        ctx = ssl.create_default_context()
-        with ctx.wrap_socket(socket.socket(), server_hostname=domain) as s:
-            s.settimeout(3)
-            s.connect((domain, 443))
-        features.append(1)
+        if parsed.scheme == "https" and domain:
+            ctx = ssl.create_default_context()
+            with ctx.wrap_socket(socket.socket(), server_hostname=domain) as s:
+                s.settimeout(3)
+                s.connect((domain, 443))
+            features.append(1)
+        else:
+            features.append(-1)
     except:
         features.append(-1)
 
-    # 🔟 WHOIS Domain Age
+    # 10) WHOIS Domain Age
     try:
         w = whois.whois(domain)
         creation_date = w.creation_date
         if isinstance(creation_date, list):
             creation_date = creation_date[0]
 
-        age = (datetime.now() - creation_date).days
-
-        if age < 180:
-            features.append(-1)
+        if creation_date:
+            age = (datetime.now() - creation_date).days
+            features.append(-1 if age < 180 else 1)
         else:
-            features.append(1)
+            features.append(-1)
     except:
         features.append(-1)
 
-    # 1️⃣1️⃣ DNS Record
+    # 11) DNS Record
     try:
         socket.gethostbyname(domain)
         features.append(1)
     except:
         features.append(-1)
 
-    # 1️⃣2️⃣ Fetch page & check iframe
+    # 12) Fetch page & check iframe + keywords
     try:
-        response = requests.get(url, timeout=3)
+        response = requests.get(url, timeout=5, headers={"User-Agent": "Mozilla/5.0"})
         soup = BeautifulSoup(response.text, "html.parser")
 
         iframes = soup.find_all("iframe")
         features.append(-1 if len(iframes) > 0 else 1)
 
-        # suspicious keywords
         suspicious_keywords = ["login", "verify", "update", "secure", "account"]
-        if any(word in url.lower() for word in suspicious_keywords):
-            features.append(-1)
-        else:
-            features.append(1)
+        features.append(-1 if any(word in url.lower() for word in suspicious_keywords) else 1)
 
     except:
+        # if fetch fails, treat as suspicious
         features.append(-1)
         features.append(-1)
 
@@ -108,4 +113,6 @@ def extract_features(url):
     while len(features) < 30:
         features.append(1)
 
-    return features
+    # IMPORTANT: return 2D shape (1, 30)
+    X = np.array(features, dtype=float).reshape(1, -1)
+    return X

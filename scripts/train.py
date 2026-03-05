@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, classification_report
 os.makedirs("models", exist_ok=True)
 
 # Load data
-df = pd.read_csv("data/dataset.csv")
+df = pd.read_csv("backend/data/dataset.csv")
 
 # Drop id column
 df.drop("id", axis=1, inplace=True)
@@ -42,6 +42,7 @@ print("\nClassification Report:\n")
 print(classification_report(y_test, y_pred))
 
 # Save model
-joblib.dump(model, "models/phishing_model.pkl")
+import joblib
+joblib.dump(model, "backend/models/phishing_model.joblib")
 
 print("\n✅ Model saved successfully!")

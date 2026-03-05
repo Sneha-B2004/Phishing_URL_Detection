@@ -1,0 +1,21 @@
+{
+  "name": "PhishGuard Iframe Overlay",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Injects an iframe overlay to check phishing risk via local API.",
+  "permissions": ["activeTab"],
+  "host_permissions": ["http://127.0.0.1:8000/*"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"],
+      "css": ["src/styles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/iframe.html", "src/iframe.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
