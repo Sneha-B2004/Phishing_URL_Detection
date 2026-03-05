@@ -56,9 +56,9 @@ if uploaded_file is not None:
             phishing_prob = phishing_prob / total
 
             # Decision
-            if phishing_prob >= 0.45:
+            if phishing_prob >= 0.55:
                 result = "Phishing"
-            elif phishing_prob >= 0.30:
+            elif phishing_prob >= 0.40:
                 result = "Suspicious"
             else:
                 result = "Legitimate"
@@ -147,7 +147,7 @@ if st.button("Check URL"):
         # Decision
         if phishing_prob >= 0.55:
             st.error("🚨 High Risk: Phishing Website")
-        elif 0.40 <= phishing_prob < 0.55:
+        elif 0.30 <= phishing_prob < 0.45:
             st.warning("⚠️ Suspicious Website (Be Careful)")
         else:
             st.success("✅ Likely Legitimate Website")
