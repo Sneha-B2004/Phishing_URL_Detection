@@ -56,9 +56,9 @@ if uploaded_file is not None:
             phishing_prob = phishing_prob / total
 
             # Decision
-            if phishing_prob >= 0.55:
+            if phishing_prob >= 0.45:
                 result = "Phishing"
-            elif phishing_prob >= 0.40:
+            elif phishing_prob >= 0.30:
                 result = "Suspicious"
             else:
                 result = "Legitimate"
