@@ -1,10 +1,9 @@
 # PHISHING URL DETECTION – MACHINE LEARNING PROJECT
 
 # LIVE DEMO
-https://phishingurldetection-hbc6r5vj4onxwvojj7smpd.streamlit.app/
+https://phishingurldetection-i46jpr2np6abcr6reqskxn.streamlit.app/
 
 # PROJECT OVERVIEW
-
 This project detects whether a given URL is **Phishing** or **Legitimate** based on structural and security-related features extracted from the URL.
 
 It is a Supervised Machine Learning Classification Problem because:
@@ -14,7 +13,6 @@ It is a Supervised Machine Learning Classification Problem because:
 The objective is to build a reliable phishing detection system that can classify suspicious URLs accurately.
 
 # OBJECTIVES
-
 * Understand phishing URL dataset
 * Perform data cleaning and preprocessing
 * Extract meaningful URL-based features
@@ -24,7 +22,6 @@ The objective is to build a reliable phishing detection system that can classify
 * Provide confidence score for predictions
 
 # PROBLEM STATEMENT
-
 Phishing websites are designed to mimic legitimate websites in order to steal sensitive information such as login credentials, banking details, and personal data.
 
 Manual detection of phishing URLs is difficult because:
@@ -38,7 +35,6 @@ Without an automated detection system:
 * Financial losses increase
 
 # Project Goal
-
 To detect phishing URLs using supervised machine learning techniques based on URL characteristics.
 
 By building this phishing detection system, stakeholders can:
@@ -47,19 +43,16 @@ By building this phishing detection system, stakeholders can:
 --> Support automated threat detection
 --> Improve online safety
 
----
-
 # DATASET USED
-
 The project uses a labeled phishing dataset containing URL features.
 
-# Target Column:
+### Target Column:
 
 Result
 * 1 → Legitimate
 * 0 (or -1 depending on dataset) → Phishing
 
-# Important Features Include:
+### Important Features Include:
 
 * Having IP Address
 * URL Length
@@ -77,23 +70,23 @@ Result
 
 # PROJECT APPROACH
 
-# Exploratory Data Analysis (EDA)
+### Exploratory Data Analysis (EDA)
 * Studied distribution of phishing vs legitimate URLs
 * Identified most influential features
 * Checked correlation between features
 
-# Data Preprocessing
+### Data Preprocessing
 * Handled missing values
 * Converted categorical values into numerical format
 * Balanced dataset (if required)
 * Split dataset into training and testing sets
 
-# Model Building
+### Model Building
 Trained classification models such as:
 * Logistic Regression
 * Random Forest Classifier
 
-# Model Evaluation
+### Model Evaluation
 Models were evaluated using:
 * Accuracy
 * Precision
@@ -102,7 +95,7 @@ Models were evaluated using:
 * Confusion Matrix
 The best-performing model was selected based on evaluation metrics.
 
-# Deployment
+### Deployment
 The final model is deployed using **Streamlit** to provide a user-friendly web interface where users can:
 * Enter a URL manually
 * Upload a CSV file for bulk scanning
