@@ -23,17 +23,6 @@ Supports **single URL scanning** and **bulk URL detection**.
 """)
 
 st.divider()
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.metric("Model Type", "Random Forest")
-
-with col2:
-    st.metric("Dataset Size", "11,000+ URLs")
-
-with col3:
-    st.metric("Features Used", "30+")
-
 # ================= ELITE: BULK URL SCANNER =================
 st.header("📂 Bulk URL Scanner")
 st.write("Upload a CSV file containing URLs to scan multiple websites at once.")
