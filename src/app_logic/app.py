@@ -120,14 +120,6 @@ if st.button("Check URL"):
     if url:
 
         features = extract_features(url)
-        st.subheader("🧠 Extracted URL Features")
-
-        feature_df = pd.DataFrame({
-        "Feature Index": range(len(features)),
-        "Value": features
-        })
-
-        st.dataframe(feature_df)
         input_data = np.array(features).reshape(1, -1)
 
         prediction_proba = model.predict_proba(input_data)[0]
@@ -160,11 +152,7 @@ if st.button("Check URL"):
         # Show probabilities
         st.write(f"Phishing Probability: {round(phishing_prob*100,2)}%")
         st.write(f"Legitimate Probability: {round(legit_prob*100,2)}%")
-        chart_data = pd.DataFrame({
-        "Probability":[phishing_prob, legit_prob]
-        }, index=["Phishing","Legitimate"])
-
-        st.bar_chart(chart_data)
+        
 
         # ================= ADVANCED: EXPLANATION ENGINE =================
         reasons = []
