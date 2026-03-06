@@ -38,10 +38,10 @@ Without an automated detection system:
 To detect phishing URLs using supervised machine learning techniques based on URL characteristics.
 
 By building this phishing detection system, stakeholders can:
---> Identify malicious websites before accessing them
---> Reduce cybersecurity risks
---> Support automated threat detection
---> Improve online safety
+* Identify malicious websites before accessing them
+* Reduce cybersecurity risks
+* Support automated threat detection
+* Improve online safety
 
 # DATASET USED
 The project uses a labeled phishing dataset containing URL features.
