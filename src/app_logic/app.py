@@ -3,7 +3,8 @@ import joblib
 import numpy as np
 import pandas as pd
 #from feature_extraction import extract_features
-from src.feature_engineering.feature_extraction import extract_features
+#from src.feature_engineering.feature_extraction import extract_features
+from feature_engineering.feature_extraction import extract_features
 
 # Load model
 model = joblib.load("models/phishing_model.pkl")
