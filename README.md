@@ -113,15 +113,5 @@ Instead of copying URLs into the web app, users can check websites directly in t
 
 ### Extension Workflow
 
-User opens a webpage
-↓
-Extension injects an iframe overlay
-↓
-Current page URL is captured
-↓
-URL is sent to backend API
-↓
-Machine learning model evaluates the URL
-↓
-Prediction is displayed in the overlay
+User opens a webpage -> Extension injects an iframe overlay -> Current page URL is captured -> URL is sent to backend API -> Machine learning model evaluates the URL -> Prediction is displayed in the overlay
 
