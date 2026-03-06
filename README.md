@@ -115,3 +115,7 @@ Instead of copying URLs into the web app, users can check websites directly in t
 
 User opens a webpage -> Extension injects an iframe overlay -> Current page URL is captured -> URL is sent to backend API -> Machine learning model evaluates the URL -> Prediction is displayed in the overlay
 
+### Flow Diagram
+
+<img width="1024" height="1536" alt="Phishing URL detection flowchart" src="https://github.com/user-attachments/assets/8b524bc0-97cf-402d-a975-f6f576a61b4d" />
+
