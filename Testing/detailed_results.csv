@@ -1,0 +1,101 @@
+url,expected_label,predicted_label,risk_score,banner,is_correct
+https://www.google.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.microsoft.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.amazon.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.apple.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.wikipedia.org,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.github.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.stackoverflow.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.reddit.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.linkedin.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.netflix.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.paypal.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.microsoftonline.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.adobe.com,LEGITIMATE,LEGITIMATE,1,✅ Likely Legitimate Website,True
+https://www.dropbox.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.nytimes.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.cnn.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.bbc.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.ibm.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.oracle.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.intel.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.nvidia.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.spotify.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.airbnb.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.booking.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.salesforce.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.tesla.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.openai.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.medium.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.quora.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.canva.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.zoom.us,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.slack.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.shopify.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.cloudflare.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.digitalocean.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.heroku.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.udemy.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.coursera.org,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.edx.org,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.khanacademy.org,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.twitch.tv,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.imdb.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.walmart.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.target.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.bestbuy.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.ebay.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.hulu.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.weather.com,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.nasa.gov,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+https://www.whitehouse.gov,LEGITIMATE,LEGITIMATE,2,✅ Likely Legitimate Website,True
+http://secure-login-paypal.com.account-update.info,PHISHING,LEGITIMATE,2,✅ Likely Legitimate Website,False
+http://paypal-login-security-update.com,PHISHING,LEGITIMATE,2,✅ Likely Legitimate Website,False
+http://amazon-prime-membership-renewal.net,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+https://google-login-security.net,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+https://netflix-verify-user.xyz,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+http://bank-account-verification-alert.com,PHISHING,LEGITIMATE,22,✅ Likely Legitimate Website,False
+http://update-your-bank-details-now.com,PHISHING,PHISHING,56,🚨 High Risk: Phishing Website,True
+https://secure-paypal-account-update.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://appleid-confirm-login.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://microsoft-security-login-check.com,PHISHING,LEGITIMATE,46,✅ Likely Legitimate Website,False
+http://paypal-user-verification-alert.net,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://google-account-security-warning.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://verify-your-netflix-payment.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://secure-amazon-update-account.xyz,PHISHING,LEGITIMATE,46,✅ Likely Legitimate Website,False
+http://facebook-login-confirmation.net,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://instagram-security-login-alert.xyz,PHISHING,LEGITIMATE,46,✅ Likely Legitimate Website,False
+http://account-security-update-bank.com,PHISHING,LEGITIMATE,22,✅ Likely Legitimate Website,False
+https://paypal-verify-account-login.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://netflix-login-payment-update.net,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://secure-google-login-account.xyz,PHISHING,LEGITIMATE,46,✅ Likely Legitimate Website,False
+http://bank-login-verification-alert.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://amazon-security-payment-check.xyz,PHISHING,PHISHING,56,🚨 High Risk: Phishing Website,True
+http://paypal-account-update-warning.net,PHISHING,LEGITIMATE,25,✅ Likely Legitimate Website,False
+https://google-login-protection-check.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://secure-bank-account-alert-login.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://verify-amazon-payment-login.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://secure-login-alert-paypal-account.net,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://google-account-verification-warning.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://bank-security-update-login-alert.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://secure-netflix-login-check.xyz,PHISHING,PHISHING,56,🚨 High Risk: Phishing Website,True
+http://update-bank-login-account-verification.com,PHISHING,LEGITIMATE,22,✅ Likely Legitimate Website,False
+https://verify-paypal-account-login-alert.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://amazon-payment-security-warning-login.net,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://google-login-account-verification.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://bank-security-warning-account-update.net,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://paypal-security-login-confirm.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://netflix-payment-login-alert-update.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://verify-google-login-account.xyz,PHISHING,LEGITIMATE,46,✅ Likely Legitimate Website,False
+http://secure-bank-login-account-warning.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://amazon-account-verification-login.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://192.168.1.1/login.html,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+http://10.0.0.1/admin-login.php,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+http://172.16.0.1/bank-login,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+http://paypal.security.login.verify.account.com,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+http://google.account.security.verify.login.com,PHISHING,PHISHING,38,⚠️ Suspicious Website (Be Careful),True
+http://login-update-paypal-account.com,PHISHING,PHISHING,39,⚠️ Suspicious Website (Be Careful),True
+https://secure-amazon-login-update.xyz,PHISHING,PHISHING,56,🚨 High Risk: Phishing Website,True
+http://bank-account-login-verification-alert.net,PHISHING,PHISHING,37,⚠️ Suspicious Website (Be Careful),True
+https://google-payment-security-alert.xyz,PHISHING,PHISHING,57,🚨 High Risk: Phishing Website,True
+http://secure-bank-account-verification-login.com,PHISHING,LEGITIMATE,25,✅ Likely Legitimate Website,False
