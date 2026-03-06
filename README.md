@@ -105,3 +105,23 @@ The final model is deployed using **Streamlit** to provide a user-friendly web i
 # BLOCK DIAGRAM
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1250f9b4-bb06-4a07-8262-2f31e9ac70b0" />
+
+# Chrome Extension Integration
+
+To improve usability, a *Chrome Extension* was added.
+Instead of copying URLs into the web app, users can check websites directly in the browser.
+
+### Extension Workflow
+
+User opens a webpage
+↓
+Extension injects an iframe overlay
+↓
+Current page URL is captured
+↓
+URL is sent to backend API
+↓
+Machine learning model evaluates the URL
+↓
+Prediction is displayed in the overlay
+
