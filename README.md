@@ -34,7 +34,7 @@ Without an automated detection system:
 * Organizations face data breaches
 * Financial losses increase
 
-# Project Goal
+# PROJECT GOAL
 To detect phishing URLs using supervised machine learning techniques based on URL characteristics.
 
 By building this phishing detection system, stakeholders can:
