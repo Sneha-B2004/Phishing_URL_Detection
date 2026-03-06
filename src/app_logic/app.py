@@ -5,17 +5,38 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import joblib
 import numpy as np
 import pandas as pd
-#from feature_extraction import extract_features
-#from src.feature_engineering.feature_extraction import extract_features
 from feature_engineering.feature_extraction import extract_features
 
+st.set_page_config(
+    page_title="AI Phishing URL Detector",
+    page_icon="🔐",
+    layout="wide"
+)
 # Load model
 model = joblib.load("models/phishing_model.pkl")
 
 st.title("🔐 Real-Time Phishing URL Detector")
+st.markdown("""
+AI-powered system that detects phishing URLs using machine learning
+and intelligent URL feature analysis.
+Supports **single URL scanning** and **bulk URL detection**.
+""")
+
+st.divider()
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric("Model Type", "Random Forest")
+
+with col2:
+    st.metric("Dataset Size", "11,000+ URLs")
+
+with col3:
+    st.metric("Features Used", "30+")
 
 # ================= ELITE: BULK URL SCANNER =================
-st.subheader("📂 Bulk URL Scanner")
+st.header("📂 Bulk URL Scanner")
+st.write("Upload a CSV file containing URLs to scan multiple websites at once.")
 
 uploaded_file = st.file_uploader(
     "Upload CSV file (must contain column named 'url')",
@@ -74,6 +95,14 @@ if uploaded_file is not None:
 
         st.write("### 🔎 Scan Results")
         st.dataframe(df)
+        csv = df.to_csv(index=False).encode('utf-8')
+
+        st.download_button(
+        "⬇ Download Scan Results",
+        csv,
+        "scan_results.csv",
+        "text/csv"
+        )
 
     else:
         st.error("CSV must contain a column named 'url'")
@@ -81,7 +110,8 @@ if uploaded_file is not None:
 # ===========================================================
 
 # ================= SINGLE URL SCANNER =================
-st.subheader("🔗 Single URL Scanner")
+st.header("🔗 Single URL Scanner")
+st.write("Enter a website URL below to analyze if it is phishing or legitimate.")
 
 url = st.text_input("Enter Website URL")
 
@@ -90,6 +120,14 @@ if st.button("Check URL"):
     if url:
 
         features = extract_features(url)
+        st.subheader("🧠 Extracted URL Features")
+
+        feature_df = pd.DataFrame({
+        "Feature Index": range(len(features)),
+        "Value": features
+        })
+
+        st.dataframe(feature_df)
         input_data = np.array(features).reshape(1, -1)
 
         prediction_proba = model.predict_proba(input_data)[0]
@@ -122,6 +160,11 @@ if st.button("Check URL"):
         # Show probabilities
         st.write(f"Phishing Probability: {round(phishing_prob*100,2)}%")
         st.write(f"Legitimate Probability: {round(legit_prob*100,2)}%")
+        chart_data = pd.DataFrame({
+        "Probability":[phishing_prob, legit_prob]
+        }, index=["Phishing","Legitimate"])
+
+        st.bar_chart(chart_data)
 
         # ================= ADVANCED: EXPLANATION ENGINE =================
         reasons = []
@@ -147,7 +190,11 @@ if st.button("Check URL"):
 
         # Risk Meter
         st.subheader("📊 Risk Score")
-        st.progress(int(phishing_prob * 100))
+        risk_score = int(phishing_prob * 100)
+
+        st.progress(risk_score)
+
+        st.metric("Phishing Risk Score", f"{risk_score}%")
 
         # Decision
         if phishing_prob >= 0.55:
