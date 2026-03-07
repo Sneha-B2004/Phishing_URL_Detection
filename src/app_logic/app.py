@@ -105,11 +105,7 @@ model = joblib.load("models/phishing_model.pkl")
 st.markdown("""
 ### About the Project
 
-Phishing websites attempt to trick users into revealing sensitive information by imitating legitimate platforms.  
-This project uses **Machine Learning** to analyze different characteristics of a URL and determine whether it is **phishing, suspicious, or legitimate**.
-
-The system extracts important URL features and processes them using a trained classification model to generate a **phishing risk score**.
-
+Phishing websites attempt to trick users into revealing sensitive information by imitating legitimate platforms. This project uses **Machine Learning** to analyze different characteristics of a URL and determine whether it is **phishing, suspicious, or legitimate**.The system extracts important URL features and processes them using a trained classification model to generate a **phishing risk score**.
 The application supports:
 - **Single URL Analysis** for quick manual checking
 - **Bulk URL Scanning** by uploading a CSV file containing multiple URLs
