@@ -197,6 +197,8 @@ if st.button("Check URL"):
             st.warning("⚠️ Suspicious Website (Be Careful)")
         else:
             st.success("✅ Likely Legitimate Website")
+    else:
+        st.warning("Please enter a URL")
 
         st.divider()
 # ================= ELITE: BULK URL SCANNER =================
@@ -274,5 +276,4 @@ if uploaded_file is not None:
         st.error("CSV must contain a column named 'url'")
         
 
-    else:
-        st.warning("Please enter a URL")
+    
