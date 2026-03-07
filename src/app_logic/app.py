@@ -7,20 +7,20 @@ import numpy as np
 import pandas as pd
 from feature_engineering.feature_extraction import extract_features
 
-'''st.set_page_config(
+st.set_page_config(
     page_title="AI Phishing URL Detector",
     page_icon="🔐",
     layout="wide"
-)'''
+)
 
-st.markdown("""
+'''st.markdown("""
 <div style='text-align:center;padding:40px'>
 <h1>🔐 Phishing URL Detection</h1>
 <p style='font-size:22px'>
 Machine Learning Security System for Detecting Malicious Websites
 </p>
 </div>
-""", unsafe_allow_html=True)
+""", unsafe_allow_html=True)'''
 
 
 st.markdown("""
