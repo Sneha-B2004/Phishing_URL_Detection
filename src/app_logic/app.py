@@ -113,6 +113,53 @@ The application supports:
 
 
 st.divider()
+
+# ================= SINGLE URL SCANNER =================
+#st.header("🔗 Single URL Scanner")
+st.markdown("## 🔗 SINGLE URL SCANNER")
+st.write("Enter a website URL below to analyze if it is phishing or legitimate.")
+
+url = st.text_input("Enter Website URL")
+
+if st.button("Check URL"):
+
+    if url:
+
+        features = extract_features(url)
+        input_data = np.array(features).reshape(1, -1)
+
+        prediction_proba = model.predict_proba(input_data)[0]
+
+        phishing_prob = prediction_proba[0]
+        legit_prob = prediction_proba[1]
+
+        # ===== Boosting Logic =====
+        suspicious_keywords = [
+            "login", "verify", "update",
+            "secure", "account", "bank", "paypal"
+        ]
+
+        if any(word in url.lower() for word in suspicious_keywords):
+            phishing_prob += 0.25
+
+        trusted_brands = [
+            "google", "paypal",
+            "amazon", "bank", "microsoft"
+        ]
+
+        if any(brand in url.lower() for brand in trusted_brands) and "-" in url:
+            phishing_prob += 0.30
+
+        # Normalize
+        total = phishing_prob + legit_prob
+        phishing_prob = phishing_prob / total
+        legit_prob = legit_prob / total
+
+        # Show probabilities
+        st.write(f"Phishing Probability: {round(phishing_prob*100,2)}%")
+        st.write(f"Legitimate Probability: {round(legit_prob*100,2)}%")
+
+
 # ================= ELITE: BULK URL SCANNER =================
 #st.header("📂 Bulk URL Scanner")
 st.markdown("## 📂 BULK URL SCANNER")
@@ -186,53 +233,6 @@ if uploaded_file is not None:
 
     else:
         st.error("CSV must contain a column named 'url'")
-
-# ===========================================================
-
-# ================= SINGLE URL SCANNER =================
-#st.header("🔗 Single URL Scanner")
-st.markdown("## 🔗 SINGLE URL SCANNER")
-st.write("Enter a website URL below to analyze if it is phishing or legitimate.")
-
-url = st.text_input("Enter Website URL")
-
-if st.button("Check URL"):
-
-    if url:
-
-        features = extract_features(url)
-        input_data = np.array(features).reshape(1, -1)
-
-        prediction_proba = model.predict_proba(input_data)[0]
-
-        phishing_prob = prediction_proba[0]
-        legit_prob = prediction_proba[1]
-
-        # ===== Boosting Logic =====
-        suspicious_keywords = [
-            "login", "verify", "update",
-            "secure", "account", "bank", "paypal"
-        ]
-
-        if any(word in url.lower() for word in suspicious_keywords):
-            phishing_prob += 0.25
-
-        trusted_brands = [
-            "google", "paypal",
-            "amazon", "bank", "microsoft"
-        ]
-
-        if any(brand in url.lower() for brand in trusted_brands) and "-" in url:
-            phishing_prob += 0.30
-
-        # Normalize
-        total = phishing_prob + legit_prob
-        phishing_prob = phishing_prob / total
-        legit_prob = legit_prob / total
-
-        # Show probabilities
-        st.write(f"Phishing Probability: {round(phishing_prob*100,2)}%")
-        st.write(f"Legitimate Probability: {round(legit_prob*100,2)}%")
         
 
         # ================= ADVANCED: EXPLANATION ENGINE =================
