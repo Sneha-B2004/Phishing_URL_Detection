@@ -27,6 +27,11 @@ Machine Learning Security System for Detecting Malicious Websites
 st.markdown("""
 <style>
 
+li {
+    color: #e6faff !important;
+    font-size: 18px;
+}
+
 /* Background */
 .stApp {
     background: linear-gradient(rgba(5,10,25,0.85), rgba(5,10,25,0.95)),
