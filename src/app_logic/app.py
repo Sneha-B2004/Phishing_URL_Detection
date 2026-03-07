@@ -12,6 +12,85 @@ st.set_page_config(
     page_icon="🔐",
     layout="wide"
 )
+st.markdown("""
+<style>
+
+.stApp {
+    background-image: url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Dark overlay */
+.main {
+    background-color: rgba(10,15,30,0.85);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* Title */
+h1 {
+    color: #00e6ff;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+/* Headers */
+h2, h3 {
+    color: #66f2ff;
+}
+
+/* Text */
+p, label {
+    color: #e6faff;
+}
+
+/* Buttons */
+.stButton>button {
+    background-color: #00e6ff;
+    color: black;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-weight: bold;
+    border: none;
+}
+
+.stButton>button:hover {
+    background-color: #00bcd4;
+    color: white;
+}
+
+/* Input box */
+.stTextInput>div>div>input {
+    border-radius: 10px;
+    border: 2px solid #00e6ff;
+}
+
+/* File uploader */
+.stFileUploader {
+    border: 2px dashed #00e6ff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Result boxes */
+.stSuccess {
+    background-color: rgba(0,255,150,0.2);
+}
+
+.stError {
+    background-color: rgba(255,0,0,0.2);
+}
+
+.stWarning {
+    background-color: rgba(255,200,0,0.2);
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # Load model
 model = joblib.load("models/phishing_model.pkl")
 
