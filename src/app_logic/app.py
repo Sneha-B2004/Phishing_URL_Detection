@@ -96,6 +96,21 @@ p,label {
     border-radius: 10px;
 }
 
+/* Download button dark style */
+.stDownloadButton>button {
+    background: linear-gradient(90deg,#00eaff,#0077ff) !important;
+    color: black !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    padding: 10px 20px !important;
+    border: none !important;
+}
+
+.stDownloadButton>button:hover {
+    background: linear-gradient(90deg,#00c6d7,#0055cc) !important;
+    color: white !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
