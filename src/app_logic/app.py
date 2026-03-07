@@ -96,6 +96,17 @@ p,label {
     border-radius: 10px;
 }
 
+/* Make uploaded file name white */
+.stFileUploader div {
+    color: white !important;
+}
+
+/* File uploader label */
+.stFileUploader label {
+    color: white !important;
+    font-weight: bold !important;
+}
+
 /* Download button dark style */
 .stDownloadButton>button {
     background: linear-gradient(90deg,#00eaff,#0077ff) !important;
