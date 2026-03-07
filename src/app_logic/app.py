@@ -198,7 +198,7 @@ if st.button("Check URL"):
         else:
             st.success("✅ Likely Legitimate Website")
 
-
+        st.divider()
 # ================= ELITE: BULK URL SCANNER =================
 #st.header("📂 Bulk URL Scanner")
 st.markdown("## 📂 BULK URL SCANNER")
