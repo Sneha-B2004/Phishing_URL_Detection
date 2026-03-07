@@ -160,6 +160,45 @@ if st.button("Check URL"):
         st.write(f"Legitimate Probability: {round(legit_prob*100,2)}%")
 
 
+         # ================= ADVANCED: EXPLANATION ENGINE =================
+        reasons = []
+
+        if any(word in url.lower() for word in suspicious_keywords):
+            reasons.append("Suspicious keyword detected in URL")
+
+        if any(brand in url.lower() for brand in trusted_brands) and "-" in url:
+            reasons.append("Possible brand impersonation (hyphen used with trusted brand name)")
+
+        if not url.startswith("https"):
+            reasons.append("Website does not use HTTPS")
+
+        if len(url) > 75:
+            reasons.append("Unusually long URL length")
+
+        if reasons:
+            st.subheader("🔎 Why this URL was flagged:")
+            for reason in reasons:
+                st.write("•", reason)
+
+        # ===============================================================
+
+        # Risk Meter
+        st.subheader("📊 Risk Score")
+        risk_score = int(phishing_prob * 100)
+
+        st.progress(risk_score)
+
+        st.metric("Phishing Risk Score", f"{risk_score}%")
+
+        # Decision
+        if phishing_prob >= 0.55:
+            st.error("🚨 High Risk: Phishing Website")
+        elif 0.30 <= phishing_prob < 0.45:
+            st.warning("⚠️ Suspicious Website (Be Careful)")
+        else:
+            st.success("✅ Likely Legitimate Website")
+
+
 # ================= ELITE: BULK URL SCANNER =================
 #st.header("📂 Bulk URL Scanner")
 st.markdown("## 📂 BULK URL SCANNER")
@@ -234,44 +273,6 @@ if uploaded_file is not None:
     else:
         st.error("CSV must contain a column named 'url'")
         
-
-        # ================= ADVANCED: EXPLANATION ENGINE =================
-        reasons = []
-
-        if any(word in url.lower() for word in suspicious_keywords):
-            reasons.append("Suspicious keyword detected in URL")
-
-        if any(brand in url.lower() for brand in trusted_brands) and "-" in url:
-            reasons.append("Possible brand impersonation (hyphen used with trusted brand name)")
-
-        if not url.startswith("https"):
-            reasons.append("Website does not use HTTPS")
-
-        if len(url) > 75:
-            reasons.append("Unusually long URL length")
-
-        if reasons:
-            st.subheader("🔎 Why this URL was flagged:")
-            for reason in reasons:
-                st.write("•", reason)
-
-        # ===============================================================
-
-        # Risk Meter
-        st.subheader("📊 Risk Score")
-        risk_score = int(phishing_prob * 100)
-
-        st.progress(risk_score)
-
-        st.metric("Phishing Risk Score", f"{risk_score}%")
-
-        # Decision
-        if phishing_prob >= 0.55:
-            st.error("🚨 High Risk: Phishing Website")
-        elif 0.30 <= phishing_prob < 0.45:
-            st.warning("⚠️ Suspicious Website (Be Careful)")
-        else:
-            st.success("✅ Likely Legitimate Website")
 
     else:
         st.warning("Please enter a URL")
