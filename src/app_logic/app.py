@@ -13,14 +13,14 @@ st.set_page_config(
     layout="wide"
 )
 
-'''st.markdown("""
+st.markdown("""
 <div style='text-align:center;padding:40px'>
 <h1>🔐 Phishing URL Detection</h1>
 <p style='font-size:22px'>
 Machine Learning Security System for Detecting Malicious Websites
 </p>
 </div>
-""", unsafe_allow_html=True)'''
+""", unsafe_allow_html=True)
 
 
 st.markdown("""
@@ -42,7 +42,7 @@ st.markdown("""
 }
 
 /* Title */
-h1 {
+/* h1 {
     color: #00eaff;
     text-align: center;
     font-size: 48px;
@@ -52,6 +52,27 @@ h1 {
 /* Headers */
 h2,h3 {
     color: #66f7ff;
+}*/
+/* Main title */
+h1 {
+    color: #00eaff;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+/* Section headings */
+h2 {
+    color: #66f7ff;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+/* Sub headings */
+h3 {
+    color: #8cf9ff;
+    font-size: 26px;
+    font-weight: 700;
 }
 
 /* Text */
