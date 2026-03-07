@@ -13,6 +13,7 @@ st.set_page_config(
     layout="wide"
 )
 
+# Hero Title Section
 st.markdown("""
 <div style='text-align:center;padding:40px'>
 <h1>🔐 Phishing URL Detection</h1>
@@ -22,10 +23,11 @@ Machine Learning Security System for Detecting Malicious Websites
 </div>
 """, unsafe_allow_html=True)
 
-
+# CSS Styling
 st.markdown("""
 <style>
 
+/* Background */
 .stApp {
     background: linear-gradient(rgba(5,10,25,0.85), rgba(5,10,25,0.95)),
     url("assets/phishing_bg.png");
@@ -34,14 +36,12 @@ st.markdown("""
     background-attachment: fixed;
 }
 
-/* Hide default white block */
+/* Container box */
 .block-container {
     background: rgba(0,0,0,0.35);
     padding: 2rem;
     border-radius: 15px;
 }
-st.markdown("""
-<style>
 
 /* Main title */
 h1 {
@@ -65,10 +65,6 @@ h3 {
     font-weight: 800 !important;
 }
 
-</style>
-""", unsafe_allow_html=True)
-
-
 /* Text */
 p,label {
     color: #e6faff;
@@ -80,9 +76,10 @@ p,label {
     color: black;
     border-radius: 8px;
     font-weight: bold;
+    padding: 10px 20px;
 }
 
-/* Inputs */
+/* Text input */
 .stTextInput input {
     border: 2px solid #00eaff;
     border-radius: 8px;
@@ -97,7 +94,6 @@ p,label {
 </style>
 """, unsafe_allow_html=True)
 
-
 # Load model
 model = joblib.load("models/phishing_model.pkl")
 
@@ -110,7 +106,8 @@ Supports **single URL scanning** and **bulk URL detection**.
 
 st.divider()
 # ================= ELITE: BULK URL SCANNER =================
-st.header("📂 Bulk URL Scanner")
+#st.header("📂 Bulk URL Scanner")
+st.markdown("## 📂 BULK URL SCANNER")
 st.write("Upload a CSV file containing URLs to scan multiple websites at once.")
 
 uploaded_file = st.file_uploader(
@@ -185,7 +182,8 @@ if uploaded_file is not None:
 # ===========================================================
 
 # ================= SINGLE URL SCANNER =================
-st.header("🔗 Single URL Scanner")
+#st.header("🔗 Single URL Scanner")
+st.markdown("## 🔗 SINGLE URL SCANNER")
 st.write("Enter a website URL below to analyze if it is phishing or legitimate.")
 
 url = st.text_input("Enter Website URL")
