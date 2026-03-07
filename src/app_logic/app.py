@@ -40,40 +40,34 @@ st.markdown("""
     padding: 2rem;
     border-radius: 15px;
 }
+st.markdown("""
+<style>
 
-/* Title */
-/* h1 {
-    color: #00eaff;
-    text-align: center;
-    font-size: 48px;
-    font-weight: 700;
-}
-
-/* Headers */
-h2,h3 {
-    color: #66f7ff;
-}*/
 /* Main title */
 h1 {
-    color: #00eaff;
-    text-align: center;
-    font-size: 48px;
-    font-weight: 900;
+    color: #00eaff !important;
+    text-align: center !important;
+    font-size: 48px !important;
+    font-weight: 900 !important;
 }
 
 /* Section headings */
 h2 {
-    color: #66f7ff;
-    font-size: 32px;
-    font-weight: 800;
+    color: #ffffff !important;
+    font-size: 36px !important;
+    font-weight: 900 !important;
 }
 
 /* Sub headings */
 h3 {
-    color: #8cf9ff;
-    font-size: 26px;
-    font-weight: 700;
+    color: #e6faff !important;
+    font-size: 28px !important;
+    font-weight: 800 !important;
 }
+
+</style>
+""", unsafe_allow_html=True)
+
 
 /* Text */
 p,label {
