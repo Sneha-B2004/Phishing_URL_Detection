@@ -97,12 +97,36 @@ p,label {
 # Load model
 model = joblib.load("models/phishing_model.pkl")
 
-st.title("🔐 Real-Time Phishing URL Detector")
 st.markdown("""
-AI-powered system that detects phishing URLs using machine learning
-and intelligent URL feature analysis.
-Supports **single URL scanning** and **bulk URL detection**.
+### About the Project
+
+Phishing attacks are one of the most common cyber threats on the internet. 
+Attackers create fake websites that mimic legitimate platforms in order to 
+steal sensitive information such as login credentials, banking details, 
+and personal data.
+
+This project presents a **Machine Learning based Phishing URL Detection System** 
+that automatically analyzes URLs and determines whether they are **legitimate, 
+suspicious, or phishing**. The system extracts several important URL features 
+such as domain structure, special characters, URL length, HTTPS usage, and 
+other behavioral indicators that are commonly associated with phishing attacks.
+
+A trained machine learning model processes these features and calculates 
+a **phishing risk score** that helps users understand the likelihood of a URL 
+being malicious.
+
+The application provides two main functionalities:
+
+• **Single URL Analysis** – Allows users to manually enter a URL and instantly receive a phishing risk assessment.  
+
+• **Bulk URL Scanning** – Enables security analysts or researchers to upload a CSV file containing multiple URLs and perform automated phishing detection for all entries.
+
+By combining **feature engineering, machine learning classification models, 
+and an interactive Streamlit interface**, this system provides a simple yet 
+powerful tool for identifying potentially harmful websites and promoting 
+safer browsing practices.
 """)
+
 
 st.divider()
 # ================= ELITE: BULK URL SCANNER =================
