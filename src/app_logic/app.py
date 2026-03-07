@@ -7,89 +7,81 @@ import numpy as np
 import pandas as pd
 from feature_engineering.feature_extraction import extract_features
 
-st.set_page_config(
+'''st.set_page_config(
     page_title="AI Phishing URL Detector",
     page_icon="🔐",
     layout="wide"
-)
+)'''
+
+st.markdown("""
+<div style='text-align:center;padding:40px'>
+<h1>🔐 Phishing URL Detection</h1>
+<p style='font-size:22px'>
+Machine Learning Security System for Detecting Malicious Websites
+</p>
+</div>
+""", unsafe_allow_html=True)
+
+
 st.markdown("""
 <style>
 
 .stApp {
-    background-image: url("https://images.unsplash.com/photo-1550751827-4bd374c3f58b");
+    background: linear-gradient(rgba(5,10,25,0.85), rgba(5,10,25,0.95)),
+    url("assets/phishing_bg.png");
     background-size: cover;
-    background-attachment: fixed;
     background-position: center;
+    background-attachment: fixed;
 }
 
-/* Dark overlay */
-.main {
-    background-color: rgba(10,15,30,0.85);
-    padding: 20px;
+/* Hide default white block */
+.block-container {
+    background: rgba(0,0,0,0.35);
+    padding: 2rem;
     border-radius: 15px;
 }
 
 /* Title */
 h1 {
-    color: #00e6ff;
+    color: #00eaff;
     text-align: center;
-    font-size: 50px;
+    font-size: 48px;
     font-weight: 700;
 }
 
 /* Headers */
-h2, h3 {
-    color: #66f2ff;
+h2,h3 {
+    color: #66f7ff;
 }
 
 /* Text */
-p, label {
+p,label {
     color: #e6faff;
 }
 
 /* Buttons */
 .stButton>button {
-    background-color: #00e6ff;
+    background: linear-gradient(90deg,#00eaff,#00aaff);
     color: black;
-    border-radius: 10px;
-    padding: 10px 25px;
+    border-radius: 8px;
     font-weight: bold;
-    border: none;
 }
 
-.stButton>button:hover {
-    background-color: #00bcd4;
-    color: white;
-}
-
-/* Input box */
-.stTextInput>div>div>input {
-    border-radius: 10px;
-    border: 2px solid #00e6ff;
+/* Inputs */
+.stTextInput input {
+    border: 2px solid #00eaff;
+    border-radius: 8px;
 }
 
 /* File uploader */
 .stFileUploader {
-    border: 2px dashed #00e6ff;
-    padding: 10px;
+    border: 2px dashed #00eaff;
     border-radius: 10px;
-}
-
-/* Result boxes */
-.stSuccess {
-    background-color: rgba(0,255,150,0.2);
-}
-
-.stError {
-    background-color: rgba(255,0,0,0.2);
-}
-
-.stWarning {
-    background-color: rgba(255,200,0,0.2);
 }
 
 </style>
 """, unsafe_allow_html=True)
+
 
 # Load model
 model = joblib.load("models/phishing_model.pkl")
